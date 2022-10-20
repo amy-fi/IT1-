@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid demo</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        div {
+            padding: 10px;
+            background-color: white;
+            height: 50px;
+            text-align: center;
+            border-radius: 5px;
+            border-style: solid;
+            border-color: black;
+        }
+
+        section {
+            display: grid;
+            grid-gap: 5px;
+            grid-template-columns: repeat(18, 1fr);
+            justify-content: space-between;
+        }
+
+        .usynlig {
+            background-color: lightblue;
+            border-style: none;
+        }
+
+        .usynlig-2 {
+            grid-column: span 2;
+            opacity: 0;
+        }
+
+        .usynlig-10 {
+            grid-column: span 10;
+            opacity: 0;
+        }
+
+        .usynlig-9 {
+            grid-column: span 9;
+            opacity: 0;
+        }
+
+        .usynlig-11 {
+            grid-column: span 11;
+            opacity: 0;
+        }
+
+        .usynlig-16 {
+            grid-column: span 16;
+            opacity: 0;
+        }
+        .space-1 {
+            grid-column: 1fr;
+            opacity: 0;
+        }
+
+        .gul {
+            background-color: yellow;
+            color: black;
+        }
+
+        .rod {
+            background-color: red;
+            color: white;
+        }
+
+        .bla {
+            background-color: blue;
+            color: white;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Periodiske system</h1>
+    </header>
+    <section>
+        <div class="gul"> H <br> 1 </div>
+        <div class="usynlig-2">2</div>
+        <div class="gul"> Ikke-metal </div>
+        <div class="bla"> Metal </div>
+        <div class="rod"> Halvmetal </div>
+        <div class="usynlig-11"></div>
+        <div class="gul">He <br> 2 </div>
+        <div class="bla">Li <br> 3 </div>
+        <div class="bla">Be <br> 4 </div>
+        <div class="usynlig-10"></div>
+        <div class="rod">B <br> 5 </div>
+        <div class="gul"> C <br> 6 </div>
+        <div class="gul">N <br> 7 </div>
+        <div class="gul">O <br> 8 </div>
+        <div class="gul">F <br> 9 </div>
+        <div class="gul">Ne <br> 10 </div>
+        <div class="bla">Na <br> 11 </div>
+        <div class="bla">Mg <br> 12 </div>
+        <div class="usynlig-10"></div>
+        <div class="bla">Al <br> 13</div>
+        <div class="rod">Si <br> 14 </div>
+        <div class="gul">P <br> 15 </div>
+        <div class="gul">S <br> 16 </div>
+        <div class="gul">Cl <br> 17 </div>
+        <div class="gul">Ar <br> 18</div>
+        <div class="bla">K <br> 19 </div>
+        <div class="bla">Ca <br> 20 </div>
+        <div class="bla">Sc <br> 21</div>
+        <div class="bla">Ti <br> 22 </div>
+        <div class="bla">V <br> 23 </div>
+        <div class="bla">Cr <br> 24 </div>
+        <div class="bla">Mn <br> 25 </div>
+        <div class="bla">Fe <br> 26 </div>
+        <div class="bla">Co <br> 27 </div>
+        <div class="bla">Ni <br> 28 </div>
+        <div class="bla">Cu <br> 29</div>
+        <div class="bla">Zn <br> 30 </div>
+        <div class="bla">Ga <br> 31 </div>
+        <div class="rod">Ge <br> 32 </div>
+        <div class="rod">As <br> 33 </div>
+        <div class="gul">Se <br> 34 </div>
+        <div class="gul">Br <br> 35 </div>
+        <div class="gul">Kr <br> 36 </div>
+        <div class="bla">Rb <br> 37 </div>
+        <div class="bla">Sr <br> 38 </div>
+        <div class="bla">Y <br> 39 </div>
+        <div class="bla">Zr <br> 40 </div>
+        <div class="bla">Nb <br> 41 </div>
+        <div class="bla">Mo <br> 42 </div>
+        <div class="bla">Tc <br> 43 </div>
+        <div class="bla">Ru <br> 44 </div>
+        <div class="bla">Rh <br> 45 </div>
+        <div class="bla">Pd <br> 46 </div>
+        <div class="bla">Ag <br> 47 </div>
+        <div class="bla">Cd <br> 48 </div>
+        <div class="bla">In <br> 49 </div>
+        <div class="bla">Sn <br> 50 </div>
+        <div class="rod">Sb <br> 51 </div>
+        <div class="rod">Te <br> 52 </div>
+        <div class="gul">I <br> 53 </div>
+        <div class="gul">Xe <br> 54 </div>
+        <div class="bla">Cs <br> 55 </div>
+        <div class="bla">Ba <br> 56 </div>
+        <div class="usynlig"> <br> 57-71 </div>
+        <div class="bla">Hf <br> 72 </div>
+        <div class="bla">Ta <br> 73 </div>
+        <div class="bla">W <br> 74 </div>
+        <div class="bla">Re <br> 75 </div>
+        <div class="bla">Os <br> 76 </div>
+        <div class="bla">Ir <br> 77 </div>
+        <div class="bla">Pt <br> 78 </div>
+        <div class="bla">Au <br> 79 </div>
+        <div class="bla">Hg <br> 80 </div>
+        <div class="bla">Tl <br> 81 </div>
+        <div class="bla">Pb <br> 82 </div>
+        <div class="bla">Bi <br> 83 </div>
+        <div class="bla">Po <br> 84 </div>
+        <div class="rod">At <br> 85 </div>
+        <div class="gul">Rn <br> 86 </div>
+        <div class="bla">Fr <br> 87 </div>
+        <div class="bla">Ra <br> 88 </div>
+        <div class="usynlig"> 89-103 </div>
+        <div class="bla">Rf <br> 104 </div>
+        <div class="bla">Db <br> 105 </div>
+        <div class="bla">Sg <br> 106 </div>
+        <div class="bla">Bh <br> 107 </div>
+        <div class="bla">Hs <br> 108 </div>
+        <div class="bla">Mt <br> 109 </div>
+        <div class="bla">Ds <br> 110 </div>
+        <div class="bla">Rg <br> 111 </div>
+        <div class="bla">Cn <br> 112 </div>
+        <div class="bla">Nh <br> 113 </div>
+        <div class="bla">Fl <br> 114 </div>
+        <div class="bla">Mc <br> 115 </div>
+        <div class="bla">Lv <br> 116 </div>
+        <div class="bla">Ts <br> 117 </div>
+        <div class="gul">Og <br> 118 </div>
+</section>
+    
+<br> 
+
+    <section 2>
+        <div class="bla">La <br> 57</div>
+        <div class="bla">Ce <br> 58 </div>
+        <div class="bla">Pr <br> 59 </div>
+        <div class="bla">Nd <br> 60 </div>
+        <div class="bla">Pm <br> 61 </div>
+        <div class="bla">Sm <br> 62 </div>
+        <div class="bla">Eu <br> 63 </div>
+        <div class="bla">Gd <br> 64 </div>
+        <div class="bla">Tb <br> 65 </div>
+        <div class="bla">dy <br> 66 </div>
+        <div class="bla">Ho <br> 67 </div>
+        <div class="bla">Er <br> 68 </div>
+        <div class="bla">Tm <br> 69 </div>
+        <div class="bla">Yb <br> 70 </div>
+        <div class="bla">Lu <br> 71 </div>
+        
+        <div class="usynlig"></div>
+        <div class="usynlig"></div>
+        <div class="usynlig"></div>
+        <div class="bla">Ac <br> 89 </div>
+        <div class="bla">Th <br> 90 </div>
+        <div class="bla">Pa <br> 91 </div>
+        <div class="bla">U <br> 92 </div>
+        <div class="bla">Np <br> 93 </div>
+        <div class="bla">Pm <br> 94</div>
+        <div class="bla">Am <br> 95 </div>
+        <div class="bla">Cm <br> 96 </div>
+        <div class="bla">Bk <br> 97 </div>
+        <div class="bla">Cf <br> 98 </div>
+        <div class="bla">Es <br> 99 </div>
+        <div class="bla">Fm <br> 100 </div>
+        <div class="bla">Md <br> 101 </div>
+        <div class="bla">No <br> 102 </div>
+        <div class="bla">Lr <br> 103 </div>
+    </section>
+
+</body>
+
+</html>

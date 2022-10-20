@@ -1,0 +1,42 @@
+body{
+    text-decoration-color: black;
+}
+
+table {
+    background-color: #f3f7ca; 
+    font-family: Georgia, serif; 
+  }
+
+  #hoved {         
+    margin: 20px;         
+    padding: 20px;                 
+    background-color: white;      
+    border: 1px solid #cccccc;
+  }
+
+  h1 {
+    font-family: Arial, sans-serif; 
+  }
+
+  table {
+    border-collapse: collapse;
+    border-bottom: 2px solid #000000;
+  }
+
+  th, td {
+    border: 1px solid #000000;
+    padding: 8px;
+  }
+
+  thead {
+    background-color: #371857;
+    color: #f6f7fa;
+  }
+
+  body {
+    background-color: beige;
+  }
+
+  div {
+    border-bottom: #000000;
+  }
