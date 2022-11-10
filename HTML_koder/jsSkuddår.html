@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skuddår</title>
+</head>
+
+<body>
+    <h1>Skuddår</h1>
+    <input id="inpHvilketÅr" placeholder="Hvilket år?" type="Number">
+    <p id="btnVelgÅr">Klikk på meg for svar</p>
+    <h1 id="txtSvar"></h1>
+
+    <script>
+        inpHvilketÅr = document.getElementById("inpHvilketÅr");
+        btnVelgÅr = document.getElementById("btnVelgÅr");
+        txtSvar = document.getElementById("txtSvar");
+        var HvilketÅr;
+        var VelgÅr;
+
+        btnVelgÅr.onclick = function () {
+            HvilketÅr = Number(inpHvilketÅr.value);
+            VelgÅr = HvilketÅr%4
+            if (VelgÅr == 0) {
+                txtSvar.innerHTML = "Det er et skuddår";
+            }
+            else {
+                txtSvar.innerHTML = "Det er ikke et skuddår";
+            }
+        }
+    </script>
+</body>
+
+</html>

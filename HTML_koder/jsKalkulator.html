@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let tall1 = parseInt(prompt("Oppgi et tall"));
+        let tall2 = parseInt(prompt("Oppgi et tall"));
+        let operator = prompt("Vil du + - * eller / stykket?")
+
+        if (operator == "+") {
+            resultat = tall1 + tall2;
+        }
+
+        if (operator == "-") {
+            result = tall1 - tall2;
+        }
+
+        if (operator == "*") {
+            result = tall1 * tall2;
+        }
+
+        if (operator == "/") {
+            result = tall1 / tall2;
+        }
+        if (result >= 5)
+            document.body.style.backgroundColor="blue"
+            
+        document.write(" Summen av " + tall1 + operator + tall2 + " er " + result);
+    </script>
+</body>
+
+</html>
