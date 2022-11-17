@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grid demo</title>
+    <title>Periodiske system</title>
     <style>
         body {
             background-color: lightblue;
@@ -28,7 +28,7 @@
             justify-content: space-between;
         }
 
-        a.section{
+        a.section {
             transform: 600ms;
         }
 
@@ -61,13 +61,23 @@
             grid-column: span 16;
             opacity: 0;
         }
+
         .space-1 {
             grid-column: 1fr;
             opacity: 0;
         }
 
+        a {
+            text-decoration: none;
+
+        }
+
         .gul {
             background-color: yellow;
+            color: black;
+        }
+
+        .gul a {
             color: black;
         }
 
@@ -76,42 +86,55 @@
             color: white;
         }
 
-        .bla {
-            background-color: blue;
+        .rod a {
             color: white;
         }
 
-        .p{
-            font-size: 50%;
+        .bla {
+            background-color: blue;
+            color: white;
+
         }
 
-       
+        .bla a {
+            color: white;
+        }
+
+        .p {
+            font-size: 10%;
+        }
+
+        div:hover {
+            transform: scale(1.8);
+
+        }
     </style>
 </head>
 
 <body>
     <header>
         <h1>Periodiske system</h1>
+        <br>
     </header>
     <section>
-        <div class="gul"> H <br> 1 </div>
+        <div class="gul"> <a href="https://snl.no/hydrogen">H <br> 1 Hydrogen</p></a></div>
         <div class="usynlig-2">2</div>
         <div class="gul"> Ikke-metal </div>
         <div class="bla"> Metal </div>
         <div class="rod"> Halvmetal </div>
         <div class="usynlig-11"></div>
-        <div class="gul">He <br> 2 </div>
-        <div class="bla">Li <br> 3 </div>
-        <div class="bla">Be <br> 4 </div>
+        <div class="gul"><a href="https://snl.no/helium">He <br> 2 Helium</p></a> </div>
+        <div class="bla"><a href="https://snl.no/litium">Li <br> 3 <br> Litium </a> </div>
+        <div class="bla"><a href="https://snl.no/beryllium">Be <br> 4 Beryllium</p> </a> </div>
         <div class="usynlig-10"></div>
-        <div class="rod">B <br> 5 </div>
-        <div class="gul"> C <br> 6 </div>
+        <div class="rod"><a href="https://snl.no/bor_-_grunnstoff">B <br> Bor <br> 5 </a> </div>
+        <div class="gul"><a href="https://snl.no/.search?query=karbon"> C <br> Karbon <br> 6</a> </div>
         <div class="gul">N <br> 7 </div>
         <div class="gul">O <br> 8 </div>
         <div class="gul">F <br> 9 </div>
         <div class="gul">Ne <br> 10 </div>
-        <div class="bla">Na <br> 11 </div>
-        <div class="bla">Mg <br> 12 </div>
+        <div class="bla"><a href="https://snl.no/natrium"> Na <br> Natrium <br> 11</a> </div>
+        <div class="bla"><a href="https://snl.no/magnesium">Mg <br> Magnesium <br> 12</a></div>
         <div class="usynlig-10"></div>
         <div class="bla">Al <br> 13</div>
         <div class="rod">Si <br> 14 </div>
@@ -191,9 +214,9 @@
         <div class="bla">Lv <br> 116 </div>
         <div class="bla">Ts <br> 117 </div>
         <div class="gul">Og <br> 118 </div>
-</section>
-    
-<br> 
+    </section>
+
+    <br>
 
     <section 2>
         <div class="bla">La <br> 57</div>
@@ -211,7 +234,7 @@
         <div class="bla">Tm <br> 69 </div>
         <div class="bla">Yb <br> 70 </div>
         <div class="bla">Lu <br> 71 </div>
-        
+
         <div class="usynlig"></div>
         <div class="usynlig"></div>
         <div class="usynlig"></div>
