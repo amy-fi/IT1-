@@ -10,21 +10,21 @@
 
 <body>
     <h1>Skuddår</h1>
-    <input id="inpHvilketÅr" placeholder="Hvilket år?" type="Number">
-    <p id="btnVelgÅr">Klikk på meg for svar</p>
+    <input id="inpHvilketAr" placeholder="Hvilket år?" type="Number">
+    <p id="btnVelgAr">Klikk på meg for svar</p>
     <h1 id="txtSvar"></h1>
 
     <script>
-        inpHvilketÅr = document.getElementById("inpHvilketÅr");
-        btnVelgÅr = document.getElementById("btnVelgÅr");
+        inpHvilketAr = document.getElementById("inpHvilketAr");
+        btnVelgAr = document.getElementById("btnVelgAr");
         txtSvar = document.getElementById("txtSvar");
-        var HvilketÅr;
-        var VelgÅr;
+        var HvilketAr;
+        var VelgAr;
 
         btnVelgÅr.onclick = function () {
-            HvilketÅr = Number(inpHvilketÅr.value);
-            VelgÅr = HvilketÅr%4
-            if (VelgÅr == 0) {
+            HvilketAr = Number(inpHvilketÅr.value);
+            VelgAr = HvilketAr%4
+            if (VelgAr == 0) {
                 txtSvar.innerHTML = "Det er et skuddår";
             }
             else {

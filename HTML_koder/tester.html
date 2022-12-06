@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yatzy</title>
+    <link rel="stylesheet" href="../CSS/CSS_til_yatzy.css">
+    <style>
+        div {
+            float: left;
+            width: 40px;
+            border: #999 1px solid;
+            padding: 10px;
+            text-align: center;
+            margin: 5px;
+        }
+
+        button {
+            height: 20px;
+        }
+
+        img {
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="imgTerning_1" src="../bilder/Terning1.svg.png" alt="">
+    <img id="imgTerning_2" src="../bilder/Terning2.svg.png" alt="">
+    <img id="imgTerning_3" src="../bilder/Terning3.svg.png" alt="">
+    <img id="imgTerning_4" src="../bilder/Terning4.svg.png" alt="">
+    <img id="imgTerning_5" src="../bilder/Terning5.svg.png" alt="">
+    <img id="imgTerning_6" src="../bilder/Terning6.svg.png" alt="">
+
+
+    <button id="btnTerning" onclick="kastTerning()">
+        Kast
+    </button>
+    <script>
+
+         var btnCheckbox = document.getElementById("btnCheckbox")
+         var chkHoldMeg = document.getElementById("chkHoldMeg")
+ 
+         btnCheckbox.onclick = function () {
+             alert("chkHoldMeg er" + chkHoldMeg.checked)
+            }
+
+        //her deklareres alle terningene
+        var terning = document.getElementById("btnTerning")
+        var terning_1 = document.getElementById("imgTerning_1")
+        var terning_2 = document.getElementById("imgTerning_2")
+        var terning_3 = document.getElementById("imgTerning_3")
+        var terning_4 = document.getElementById("imgTerning_4")
+        var terning_5 = document.getElementById("imgTerning_5")
+        var terning_6 = document.getElementById("imgTerning_6")
+        var overskrift = document.getElementById("overskrift")
+
+            /*En funksjon som kaster terningen. Terningen kaster tall mellom 1 og 6*/
+            function kastTerning(terningNummer) {
+
+                if (kastTerning == chkHoldMeg ) {
+                var tilfeldigTall;
+                tilfeldigTall = (Math.random() * 6) + 1;
+                var tilfeldigTallHelt = parseInt(tilfeldigTall);
+                //hvis det tilfeldige tallet er 1, vises bilde som tilsvarer 1//
+                if (tilfeldigTallHelt == 1) {
+                    terningNummer.src = "../bilder/Terning1.svg.png"
+                }
+                else if (tilfeldigTallHelt == 2) {
+                    terningNummer.src = "../bilder/Terning2.svg.png"
+                }
+
+                else if (tilfeldigTallHelt == 3) {
+                    terningNummer.src = "../bilder/Terning3.svg.png"
+                }
+
+                else if (tilfeldigTallHelt == 4) {
+                    terningNummer.src = "../bilder/Terning4.svg.png"
+                }
+                else if (tilfeldigTallHelt == 5) {
+                    terningNummer.src = "../bilder/Terning5.svg.png"
+                }
+                else if (tilfeldigTallHelt == 6) {
+                    terningNummer.src = "../bilder/Terning6.svg.png"
+                }
+
+
+            }
+
+                
+
+                //En funksjon som gjør at når man trykker på knappen kastes terningen//
+            }
+        function kastTerninger() {
+            kastTerning(terning_1)
+            kastTerning(terning_2)
+            kastTerning(terning_3)
+            kastTerning(terning_4)
+            kastTerning(terning_5)
+            kastTerning(terning_6)
+
+        }
+        btnTerning.onclick = kastTerninger;
+
+    </script>
+    <section>
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="5">Yatzy</th>
+                </tr>
+
+                <tr>
+                    <th></th>
+                    <th>Player 1</th>
+                    <th>Player 2</th>
+                    <th>Player 3</th>
+                    <th>Player 4</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>1s</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>2s</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>3s</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>4s</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>5s</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>6s</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </section>
+</body>
+
+</html>

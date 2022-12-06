@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yatzy</title>
+    <link rel="stylesheet" href="../CSS/CSS_til_yatzy.css">
+</head>
+
+<body>
+    <div>
+
+        <h1>Yatzy for 4</h1>
+
+        <section>
+            <table class="chkbox">
+                <tr>
+                    <td><img id="imgTerning_1" src="../bilder/Terning1.svg.png" alt=""></td>
+                    <td><img id="imgTerning_2" src="../bilder/Terning2.svg.png" alt=""></td>
+                    <td><img id="imgTerning_3" src="../bilder/Terning3.svg.png" alt=""></td>
+                    <td><img id="imgTerning_4" src="../bilder/Terning4.svg.png" alt=""></td>
+                    <td><img id="imgTerning_5" src="../bilder/Terning5.svg.png" alt=""></td>
+                    <td><img id="imgTerning_6" src="../bilder/Terning6.svg.png" alt=""></td>
+                    <td><button id="btnTerning">
+                            Kast
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="chkbox" id="keep1"></td>
+                    <td><input type="checkbox" name="chkbox" id="keep2"></td>
+                    <td><input type="checkbox" name="chkbox" id="keep3"></td>
+                    <td><input type="checkbox" name="chkbox" id="keep4"></td>
+                    <td><input type="checkbox" name="chkbox" id="keep5"></td>
+                    <td><input type="checkbox" name="chkbox" id="keep6"></td>
+                </tr>
+            </table>
+        </section>
+
+        <p></p>
+
+        <section>
+            <table id="paper">
+                <thead>
+                    <tr>
+                        <th colspan="5">Yatzy</th>
+                    </tr>
+
+                    <tr>
+                        <th></th>
+                        <th>Player 1</th>
+                        <th>Player 2</th>
+                        <th>Player 3</th>
+                        <th>Player 4</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr id="bonusSum">
+                        <td>1s</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="bonusSum">
+                        <td>2s</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr id="bonusSum">
+                        <td>3s</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr id="bonusSum">
+                        <td>4s</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr id="bonusSum">
+                        <td>5s</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr id="bonusSum">
+                        <td>6s</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr id="totalBonusSum">
+                        <th>Sum</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr id="bonus">
+                        <th>Bonus</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr id="totalSum">
+                        <td>1 par</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>2 par</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>3 like</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>4 like</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Litern straight</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Stor straight</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Hus</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Sjangse</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Yatzy</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <th>Totalsum</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <script>
+
+            //her deklareres alle terningene
+            var terning = document.getElementById("btnTerning")
+            var terning_1 = document.getElementById("imgTerning_1")
+            var terning_2 = document.getElementById("imgTerning_2")
+            var terning_3 = document.getElementById("imgTerning_3")
+            var terning_4 = document.getElementById("imgTerning_4")
+            var terning_5 = document.getElementById("imgTerning_5")
+            var terning_6 = document.getElementById("imgTerning_6")
+            var overskrift = document.getElementById("overskrift")
+            var kast = 0
+
+
+
+            /*En funksjon som kaster terningen. Terningen kaster tall mellom 1 og 6*/
+            function kastTerning(terningNummer) {
+                console.log(terningNummer)
+                var tilfeldigTall;
+                tilfeldigTall = (Math.random() * 6) + 1;
+                var tilfeldigTallHelt = parseInt(tilfeldigTall);
+                console.log(tilfeldigTallHelt)
+
+
+
+
+                //hvis det tilfeldige tallet er 1, vises bilde som tilsvarer 1//
+                if (tilfeldigTallHelt == 1) {
+                    terningNummer.src = "../bilder/Terning1.svg.png"
+                }
+                else if (tilfeldigTallHelt == 2) {
+                    terningNummer.src = "../bilder/Terning2.svg.png"
+                }
+
+                else if (tilfeldigTallHelt == 3) {
+                    terningNummer.src = "../bilder/Terning3.svg.png"
+                }
+
+                else if (tilfeldigTallHelt == 4) {
+                    terningNummer.src = "../bilder/Terning4.svg.png"
+                }
+                else if (tilfeldigTallHelt == 5) {
+                    terningNummer.src = "../bilder/Terning5.svg.png"
+                }
+                else if (tilfeldigTallHelt == 6) {
+                    terningNummer.src = "../bilder/Terning6.svg.png"
+                }
+
+
+
+
+
+                //En funksjon som gjør at når man trykker på knappen kastes terningen//
+            }
+
+            function kastTerninger() {
+                if (document.getElementById("keep1").checked == false) {
+                    kastTerning(terning_1)
+                }
+                if (document.getElementById("keep2").ckeched == false) {
+                    kastTerning(terning_2)
+                }
+
+                if (document.getElementById("keep3").checked == false) {
+                    kastTerning(terning_3)
+                }
+
+                if (document.getElementById("keep4").checked == false) {
+                    kastTerning(terning_4)
+                }
+
+                if (document.getElementById("keep5").checked == false) {
+                    kastTerning(terning_5)
+                }
+
+                if (document.getElementById("keep6").checked == false) {
+                    kastTerning(terning_6)
+                }
+
+                kast++
+                if (kast == 3) {
+                    terning.disabled = true
+                }
+            }
+            btnTerning.onclick = kastTerninger;
+
+
+
+
+
+        </script>
+    </div>
+</body>
+
+</html>
