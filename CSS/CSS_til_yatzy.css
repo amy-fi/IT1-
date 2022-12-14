@@ -1,0 +1,35 @@
+/*her er tabellen*/
+
+body {
+    background-color: rgb(143, 166, 249);
+}
+
+#overskrift {
+    text-align: center;
+}
+
+button {
+    height: 20px;
+}
+
+#btnTerning {
+    height: 40px;
+}
+
+img {
+    width: 50px;
+}
+
+#paper, #paper td, #paper tr, #paper th{
+    border: 1px solid black;
+    align-items: center;
+    background-color: white;
+   
+}
+
+table {
+    margin-left:auto; 
+    margin-right:auto;
+  }
+
+
