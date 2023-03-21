@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blipp</title>
+
+</head>
+
+<body>
+    <style>
+        div {
+            position: absolute;
+            background-color: blue;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        #poengElement{
+            font-size: large;
+        }
+
+        
+
+        #overskrift {
+           text-align: center;
+        }
+
+    </style>
+    <input type="color" name="" id="farge">
+    <audio src="../bilder/Blipp.wav" id="fjernLyd"> </audio>
+    <input id ="storrelse" type="range">
+    <h1 id="overskrift">Blippslpill</h1>
+   
+    <table>
+        <thead>
+            <tr>
+                <th id="poengElement" colspan="1">Poeng</th>
+            </tr>
+            
+        </thead>
+    </table>
+    <script>
+
+        var ny = true;
+        var farge = document.getElementById("farge");
+        var poeng = 0;
+        var storrelse = document.getElementById("storrelse")
+        var tid = 50
+
+        var fjern = function (evt) {
+            evt.stopPropagation();
+            if (!ny) {
+                poeng = poeng + 1
+                poengElement.innerHTML = poeng;
+                var fjernLyd = document.getElementById("fjernLyd");
+                var minAnim = evt.target.animate([{ transform: "scale(1)" }, { transform: "scale(2)" }], tid);
+                minAnim.onfinish = function () {
+                    document.body.removeChild(evt.target);
+                    fjernLyd.play();
+                }
+
+            }
+
+            ny = false;
+
+        }
+
+        window.onclick = function (evt) {
+            ny = true;
+            evt.stopPropagation();
+            var mittElement = document.createElement("div");
+            mittElement.style.top = evt.clientY - 25 + "px";
+            mittElement.style.left = evt.clientX - 25 + "px";
+            mittElement.style.backgroundColor = farge.value;
+            mittElement.style.width = (Number(storrelse.value)+"px")
+            mittElement.style.height = (Number(storrelse.value)+"px")
+            mittElement.onmouseover = fjern;
+            document.body.appendChild(mittElement);
+
+        }
+
+        farge.onclick = function (evt) {
+            evt.stopPropagation();
+        }
+
+        storrelse.oninput = function (evt) {
+            tid = Number(storrelse.value)
+        }
+
+        storrelse.onclick = function (evt) {
+            evt.stopPropagation();
+        }
+
+
+    </script>
+</body>
+
+</html>

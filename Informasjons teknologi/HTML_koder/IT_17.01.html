@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objekter</title>
+</head>
+<body>
+    <script>
+        let meg = {
+            forNavn: "Amy",
+            etterNavn : "Fiamingo",
+            fulltNavn : function () {
+                return this.forNavn + "" + this.etterNavn
+            },
+            fodselsAar : "2005",
+            favorittFilm : ["Interstellar", "Fight Club", "The Gentlemen"],
+            favorittMat : ["Pizza" , "Pasta" , "Taco"],
+            adresse : "Hildertunet 11",
+            favorittFarge : ["Bla", "og", "gronn"]
+        };
+
+        alert(meg.fulltNavn())
+
+        for (let egenskap in meg) {
+            alert(meg[egenskap]);
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age generator</title>
+</head>
+
+<body>
+    <script>
+        var tilfeldigTall;
+        tilfeldigTall = (Math.random() * 100) + 1;
+        var tilfeldigTallHelt = parseInt(tilfeldigTall);
+        console.log(tilfeldigTallHelt);
+
+        if (tilfeldigTallHelt < 10) {
+            alert("Du er ung")
+        }
+
+        else if (tilfeldigTallHelt < 20) {
+            alert("Du er ungdom")
+        }
+
+        else if (tilfeldigTallHelt < 60) {
+            alert("Du er voksen")
+        }
+        
+        else if (tilfeldigTallHelt < 80) {
+            alert("Du er eldre")
+        }
+
+        else if (tilfeldigTallHelt < 100) {
+            alert("Du er gammel")
+        }
+
+        if (tilfeldigTallHelt == 67) {
+            alert("Du er pensjonist")
+        }
+
+    document.write ("Du er " + tilfeldigTallHelt + " år")
+    </script>
+</body>
+
+</html>

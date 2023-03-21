@@ -1,0 +1,29 @@
+body {
+  font-family: Georgia, serif;
+  margin: 0%;
+}
+
+
+/*Dette er css til navigasjonbarren*/
+ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+  display: inline;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: 5px;
+}
+
+a {
+  padding: 8px;
+
+}
+
+li a:hover {
+  overflow: hidden;
+}

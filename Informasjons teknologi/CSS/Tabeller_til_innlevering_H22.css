@@ -1,0 +1,23 @@
+tbody {
+    background-color: blanchedalmond;
+  }
+
+  h1 {
+    color: #fff;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-bottom: 2px solid #000000;
+  }
+
+  th,
+  td {
+    border: 1px solid #000000;
+    padding: 8px;
+  }
+
+  thead {
+    background-color: #371857;
+    color: #f6f7fa;
+  }
