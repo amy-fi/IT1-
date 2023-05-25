@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="mittSkjema" action="">
+        <input type="number" required placeholder="Skriv et tall">
+        <input type="text" required placeholder="Hva heter du?">
+        <input type="text" required placeholder="Hvem er læreren din?">
+        <input type="text" required placeholder="Hvilke rom har du norsk i?">
+        <input type="text" required placeholder="Når har du eksamen?">
+        <input type="text" required placeholder="Når er muntlig eksamen?">
+        <button id="minKnapp" type="submit">Bekreft</button>
+
+    </form>
+    
+    <script>
+        var mittSkjema = document.getElementById("mittSkjema");
+        var minKnapp = document.getElementById("minKnapp");
+
+        mittSkjema.onsubmit = function(event) {
+            event.preventDefault();
+            alert("du trykket på snappen")
+        }
+    
+    </script>
+</body>
+</html>

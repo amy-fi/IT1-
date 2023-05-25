@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+
+<body>
+    <audio id="lydRiktigSvar"
+        src="C:/Users/helgeul/OneDrive%20-%20Viken%20fylkeskommune/Arkiv/IT2/2020-21/JS/Applaus1.mp3"></audio>
+    <h1 id="sporsmaal">Her er spørsmålet</h1>
+    <input id="inpSvar" type="text" placeholder="Skriv svaret her">
+    <input id="inpNyttSpmSvar" type="text" hidden="true">
+    <button id="btnAdmin" hidden ="true" >Bli admin</button>
+    <h5 id="alternativ1">Alt1</h5>
+    <h5 id="alternativ2">Alt2</h5>
+    <h5 id="alternativ3">Alt3</h5>
+
+    <button id="btnOK">Klikk når du er klar</button>
+    <button id="btnForrige">Forrige</button>
+    <button id="btnNeste">Neste</button>
+    <br><br>
+    <img id="imgBilde" src="" width=200px alt="Fant ikke bildet">
+    <script>
+        localStorage.minSang = "Hey Jude";
+        var sporsmaal = document.getElementById("sporsmaal");
+        var alternativ1 = document.getElementById("alternativ1");
+        var alternativ2 = document.getElementById("alternativ2");
+        var alternativ3 = document.getElementById("alternativ3");
+        var lydRiktigSvar = document.getElementById("lydRiktigSvar");
+
+        var inpSvar = document.getElementById("inpSvar");
+        var inpNyttSpmSvar = document.getElementById("inpNyttSpmSvar");
+        var btnOK = document.getElementById("btnOK");
+        var btnNeste = document.getElementById("btnNeste");
+        var btnForrige = document.getElementById("btnForrige");
+        var imgBilde = document.getElementById("imgBilde");
+        var btnAdmin = document.getElementById("btnAdmin");
+        var spmNr = 0;
+        btnForrige.disabled = true;
+
+        var spmOgSvar = [
+            { q: "Hva heter norges høyeste fjell?", a1: "1: Galdhøpiggen", a2: "2: Glittertind", a3: "3: Store Skagastølstind", riktig: "1", bilde: "../bilder/Galdhøpiggen.jpg" },
+            { q: "Hvor høy er Mount Everest?", a1: "1: 2848 m", a2: "2: 4848 m", a3: "3: 8848 m", riktig: "3", bilde: "../bilder/Mount_Everest.jpg" },
+            { q: "Hva er fornavnet statsministeren i Norge?", a1: "Jonas", a2: "Ronny", a3: "Pelle", riktig: "1", bilde: "../bilder/Jonas_Gahr_Støre.jpg" },
+            { q: "Hvor høys er Eiffeltårnet i Paris?", a1: "300 m", a2: "324 m", a3: "420 m", riktig: "2", bilde: "../bilder/eiffeltårnet.jpg" },
+            { q: "Hvem vant VM finalen i håndball i 2023?", a1: "", a2: "", a3: "", riktig: "Spania", bilde: "" },
+            { q: "Hvilken planet blir kalt røde planeten?", a1: "", a2: "", a3: "", riktig: "Mars" },
+            { q: "Hvor langt er et maratonløp?", a1: "42", a2: "40", a3: "43", riktig: "42" }
+        ]
+
+        function settOppSkjermbilde() {
+            sporsmaal.innerHTML = spmOgSvar[spmNr].q;
+            imgBilde.src = spmOgSvar[spmNr].bilde;
+            if (spmOgSvar[spmNr].bilde == "") {
+                imgBilde.alt = "";
+            }
+            alternativ1.hidden = false;
+            alternativ2.hidden = false;
+            alternativ3.hidden = false;
+            btnForrige.hidden = false;
+            btnNeste.hidden = false;
+            alternativ1.innerHTML = spmOgSvar[spmNr].a1;
+            alternativ2.innerHTML = spmOgSvar[spmNr].a2;
+            alternativ3.innerHTML = spmOgSvar[spmNr].a3;
+        }
+
+        //initiering av det første spørsmål:
+        settOppSkjermbilde();
+
+        function sjekkSvar() {
+            if (inpSvar.value.toLowerCase() == spmOgSvar[spmNr].riktig.toLowerCase()) {
+                alert("Supert, du er et geni!")
+                lydRiktigSvar.play();
+            }
+            else {
+                alert("Du er ikke et geni ennå")
+            }
+        }
+        btnOK.addEventListener("click", sjekkSvar);
+
+        function nesteSpm() {
+            btnForrige.disabled = false;
+            if (spmNr < spmOgSvar.length - 1) {
+                spmNr = spmNr + 1  // spmNr++;
+                settOppSkjermbilde();
+            }
+            if (spmNr == spmOgSvar.length - 1) {
+                btnNeste.disabled = true;
+            }
+        }
+        btnNeste.addEventListener("click", nesteSpm);
+
+        function forrigeSpm() {
+            btnNeste.disabled = false;
+            if (spmNr > 0) {
+                spmNr = spmNr - 1  // spmNr--;
+                settOppSkjermbilde();
+            }
+            if (spmNr == 0) {
+                btnForrige.disabled = true;
+            }
+        }
+        btnForrige.addEventListener("click", forrigeSpm);
+
+        function adminFunksjoner() {
+            btnAdmin.innerHTML = "Tilbake til vanlig svarmodus";
+            btnAdmin.removeEventListener("click", adminFunksjoner);
+            btnAdmin.addEventListener("click", normalFunksjoner);
+            inpNyttSpmSvar.hidden = false;
+            sporsmaal.innerHTML = "Skriv nytt spørsmål i første inputfelt, riktig svar i andre";
+            inpSvar.placeholder = "Spørsmål";
+            inpNyttSpmSvar.placeholder = "Svar";
+            alternativ1.hidden = true;
+            alternativ2.hidden = true;
+            alternativ3.hidden = true;
+            imgBilde.src = "";
+            imgBilde.alt = "";
+            btnForrige.hidden = true;
+            btnNeste.hidden = true;
+            btnOK.removeEventListener("click", sjekkSvar);
+            btnOK.addEventListener("click", leggInnNyttSpm);
+            btnOK.innerHTML = "Legg inn spørsmålet";
+        }
+
+        function normalFunksjoner() {
+            inpSvar.placeholder = "Skriv svaret her"
+            inpNyttSpmSvar.hidden = true;
+            btnAdmin.innerHTML = "Bli admin";
+            btnAdmin.removeEventListener("click", normalFunksjoner);
+            btnAdmin.addEventListener("click", adminFunksjoner);
+            btnOK.innerHTML = "Klikk når du er klar";
+            btnOK.removeEventListener("click", leggInnNyttSpm);
+            btnOK.addEventListener("click", sjekkSvar);
+            inpSvar.value = "";
+            settOppSkjermbilde();
+            btnAdmin.hidden = false;
+        }
+
+        function leggInnNyttSpm() {
+            //gjør alt som trengs for å legge til et nytt spm
+            var nyttSpm = { q: inpSvar.value, riktig: inpNyttSpmSvar.value, a1: "", a2: "", a3: "", bilde: "" };
+            spmOgSvar.push(nyttSpm);
+        }
+        btnAdmin.addEventListener("click", adminFunksjoner);
+
+        function knappeTrykk(evt) {
+            var tallkode = evt.keyCode;
+
+            if (tallkode == 66) {
+                btnAdmin.hidden = false;
+            }
+
+        }
+        document.addEventListener("keydown", knappeTrykk);
+
+    </script>
+</body>
+
+</html>
+
+<!--Version 2-->
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spørreprogram</title>
+</head>
+
+<body>
+    <h1 id="sporsmaal">Her er spørsmålet</h1>
+    <input id="inpSvar" type="text">
+    <input id="inpNyttSpmSvar" type="text">
+    <button id="btnAdmin">Bli admin</button>
+    <h5 id="alternativ1">Alt1</h5>
+    <h5 id="alternativ2">Alt2</h5>
+    <h5 id="alternativ3">Alt3</h5>
+
+    <button id="btnOK">Klikk når du er klar</button>
+    <button id="btnForrige">Forrige</button>
+    <button id="btnNeste">Neste</button>
+    <br><br>
+    <img id="imgBilde" src="" width=200px alt="Fant ikke bildet">
+    <script>
+        var sporsmaal = document.getElementById("sporsmaal");
+        var alternativ1 = document.getElementById("alternativ1");
+        var alternativ2 = document.getElementById("alternativ2");
+        var alternativ3 = document.getElementById("alternativ3");
+        var lydRiktigSvar = document.getElementById("lydRiktigSvar");
+
+        var inpSvar = document.getElementById("inpSvar");
+        var inpNyttSpmSvar = document.getElementById("inoNyttSpmSvar")
+        var btnOK = document.getElementById("btnOK");
+        var btnNeste = document.getElementById("btnNeste");
+        var btnForrige = document.getElementById("btnForrige");
+        var imgBilde = document.getElementById("imgBilde");
+        var btnAdmin = document.getElementById("btnAdmin")
+        var spmNr = 0;
+        btnForrige.disabled = true;
+
+        var spmOgSvar = [
+            { q: "Hva heter norges høyeste fjell?", a1: "1: Galdhøpiggen", a2: "2: Glittertind", a3: "3: Store Skagastølstind", riktig: "1", bilde: "../bilder/Galdhøpiggen.jpg" },
+            { q: "Hvor høy er Mount Everest?", a1: "1: 2848 m", a2: "2: 4848 m", a3: "3: 8848 m", riktig: "3", bilde: "../bilder/Mount_Everest.jpg" },
+            { q: "Hva er fornavnet statsministeren i Norge?", a1: "Jonas", a2: "Ronny", a3: "Pelle", riktig: "1", bilde: "../bilder/Jonas_Gahr_Støre.jpg" },
+            { q: "Hvor høys er Eiffeltårnet i Paris?", a1: "300 m", a2: "324 m", a3: "420 m", riktig: "2", bilde: "../bilder/eiffeltårnet.jpg"},
+            { q: "Hvem vant VM finalen i håndball i 2023?", a1: "", a2: "", a3: "", riktig: "Spania", bilde: ""},
+            { q: "Hvilken planet blir kalt røde planeten?", a1: "", a2: "", a3: "", riktig: "Mars"},
+            { q: "Hvor langt er et maratonløp?", a1: "42", a2: "40", a3: "43", riktig: "42"}
+            
+        ]
+
+        function settOppSkjermbilde() {
+            sporsmaal.innerHTML = spmOgSvar[spmNr].q;
+            imgBilde.src = spmOgSvar[spmNr].bilde;
+            if(spmOgSvar[spmNr].bilde == "") {
+                imgBilde.alt = "";
+            }
+            alternativ1.innerHTML = spmOgSvar[spmNr].a1;
+            alternativ2.innerHTML = spmOgSvar[spmNr].a2;
+            alternativ3.innerHTML = spmOgSvar[spmNr].a3;
+        }
+
+        //initiering av det første spørsmål:
+        settOppSkjermbilde();
+
+        function sjekkSvar() {
+            if (inpSvar.value.toLowerCase() == spmOgSvar[spmNr].riktig.toLowerCase()) {
+                alert("Supert, du er et geni!")
+                lydRiktigSvar.play();
+            }
+            else {
+                alert("Du er ikke et geni ennå")
+            }
+        }
+        btnOK.addEventListener("click", sjekkSvar);
+
+        function nesteSpm() {
+            btnForrige.disabled = false;
+            if (spmNr < spmOgSvar.length - 1) {
+                spmNr = spmNr + 1  // spmNr++;
+                settOppSkjermbilde();
+            }
+            if (spmNr == spmOgSvar.length - 1) {
+                btnNeste.disabled = true;
+            }
+        }
+        btnNeste.addEventListener("click", nesteSpm);
+
+        function forrigeSpm() {
+            btnNeste.disabled = false;
+            if (spmNr > 0) {
+                spmNr = spmNr - 1  // spmNr--;
+                settOppSkjermbilde();
+            }
+            if (spmNr == 0) {
+                btnForrige.disabled = true;
+            }
+        }
+        btnForrige.addEventListener("click", forrigeSpm);
+
+        function adminFunksjoner () {
+            btnAdmin.removeEventListener("click, admin", adminFunksjoner);
+            inpNyttSpmSvar.hidden = false;
+            sporsmaal.innerHTML = "Skriv nytt spørsmål i første inputfelt, riktig svar i andre";
+            inpSvar.placeholder = "Spørsmål";
+            inpNyttSpmSvar.placeholder = "Svar";
+            alternativ1.hidden = true;
+            alternativ2.hidden = true;
+            alternativ3.hidden = true;
+            imgBilde.src="";
+            imgBilde.alt="";    
+            btnForrige.hidden = true;
+            btnNeste.hidden = true;
+            btnOK.removeEventListener("click", sjekkSvar);
+            btnOK.addEventListener("click", leggInnNyttSpm);
+            btnOK.innerHTML = "Legg inn spørsmål";
+        }
+
+
+        function normalFunksjoner () {
+            btnOK.removeEventListener("click", leggInnNyttSpm);
+            btnOK.addEventListener("click", sjekkSvar);
+        }
+        function leggInnNyttSpm() {
+            //skal gjør alet som trengs for å legge til et nytt spm
+            var nyttSpm = {q: inpSvar.value, riktig: inpNyttSpmSvar.value, a1: "", a2: "", a3: "", bilde: ""}
+            spmOgSvar.push(nyttSpm);
+        }
+
+        btnAdmin.addEventListener("click", adminFunksjoner);
+
+    </script>
+</body>
+
+</html>
+-->
+
+<!--Version 1-->
+<!--
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spørreprogram</title>
+</head>
+
+<body>
+    <h1 id="sporsmaal">Her er spørsmålet</h1>
+    <input id="inpSvar" type="text">
+    <button id="btnOK">Klikk når du er klar</button>
+    <button id="btnForrige">Forrige</button>
+    <button id="btnNeste">Neste</button>
+    <br>
+    <img id="imgBilde" width="500px" alt="Fant ikke bildet">
+    <h5 id="alternativ1">Alt1</h5>
+    <h5 id="alternativ2">Alt2</h5>
+    <h5 id="alternativ3">Alt3</h5>
+    
+
+
+
+    <script>
+        var sporsmaal = document.getElementById("sporsmaal");
+        var alternativ1 = document.getElementById("alternativ1")
+        var alternativ2 = document.getElementById("alternativ2")
+        var alternativ3 = document.getElementById("alternativ3")
+
+        var inpSvar = document.getElementById("inpSvar");
+        var btnOK = document.getElementById("btnOK");
+        var btnNeste = document.getElementById("btnNeste");
+        var btnForrige = document.getElementById("btnForrige");
+        var imgBilde = document.getElementById("imgBilde");
+        var spmNr = 0;
+        btnForrige.disabled = false;
+
+
+        var spmOgSvar = [
+            { q: "Hva heter det høyeste fjellet i Norge?", a1: "1: Galdhøpiggen", a2: "2: Glittertind", a3: "3: Store Skagstøltind", riktig :"1", bilde: "../bilder/Galdhøpiggen.jpg" },
+            { q: "Hvor høy er Mount Everest?", a: "8849", bilde: "../bilder/Mount_Everest.jpg" },
+            { q: "Hva er fornavnet til statsministeren i Norge", a: "Jonas", bilde: "../bilder/Jonas_Gahr_Støre.jpg" },
+            { q: "Hva er hovedstaten i Canada?", a: "Ottawa", bilde: ""},
+            { q: ""}
+        ]
+
+        function settOppSkjermbilde() {
+            sporsmaal.innerHTML = spmOgSvar[spmNr].q;
+            imgBilde.src = spmOgSvar[spmNr].bilde;
+            alternativ1.innerHTML = spmOgSvar[spmNr].a1;
+            alternativ2.innerHTML = spmOgSvar[spmNr].a2;
+            alternativ3.innerHTML = spmOgSvar[spmNr].a3;
+        }
+
+        //initsiering av det første spørsmålet
+        settOppSkjermbilde();
+
+        sporsmaal.innerHTML = spmOgSvar[spmNr].q;
+        imgBilde.src = spmOgSvar[spmNr].bilde;
+
+        function sjekkSvar() {
+            if (inpSvar.value.toLowerCase() == spmOgSvar[spmNr].a.toLowerCase()) {
+                alert("Supert")
+            }
+            else {
+                alert("Feil")
+            }
+        }
+        btnOK.addEventListener("click", sjekkSvar);
+
+        function nesteSpm() {
+            btnForrige.disabled = false;
+            if (spmNr < spmOgSvar.length - 1) {
+                spmNr = spmNr + 1
+                sporsmaal.innerHTML = spmOgSvar[spmNr].q;
+                imgBilde.src = spmOgSvar[spmNr].bilde;
+            }
+            if (spmNr == spmOgSvar.length - 1) {
+                btnNeste.disabled = true;
+            }
+        }
+
+        btnNeste.addEventListener("click", nesteSpm);
+
+
+        function forrigeSpm() {
+            btnNeste.disabled = false;
+            if (spmNr > 0) {
+                spmNr = spmNr - 1
+                sporsmaal.innerHTML = spmOgSvar[spmNr].q;
+                imgBilde.src = spmOgSvar[spmNr].bilde;
+            }
+            if (spmNr == 0) {
+                btnForrige.disabled = true;
+            }
+        }
+        btnForrige.addEventListener("click", forrigeSpm)
+
+
+
+    </script>
+</body>
+
+</html>
+-->

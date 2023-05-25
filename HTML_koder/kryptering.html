@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kryptering</title>
+</head>
+
+<body>
+    <input type="number" id="forskyvningsTall" placeholder="Lengde på forskyvning">
+    <input type="text" id="inputOrd" placeholder="Skriv inn et ord">
+
+    <p id="krypteringSvar"></p>
+
+    <script>
+        inputOrd = document.getElementById("inputOrd");
+        krypteringSvar = document.getElementById("krypteringSvar");
+        forskyvningsTall = document.getElementById("forskyvningsTall");
+
+        inputOrd.onkeyup = function () {
+            let i = inputOrd.value.length - 1;
+            let Kryptering = inputOrd.value.charCodeAt(i);
+            let forskyvning = parseInt(forskyvningsTall.value)
+
+            if (i == krypteringSvar.innerHTML.length) {
+                krypteringSvar.innerHTML += String.fromCharCode(Kryptering + forskyvning)
+            }
+
+            else {
+                let tekst = krypteringSvar.innerHTML;
+                krypteringSvar.innerHTML = tekst.slice(0, i + 1);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -29,10 +29,12 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgb(0, 0, 0.2);
             margin: auto;
-            margin-top: 10px;
+            margin-top: 5px;
             padding: 20px;
             box-sizing: border-box;
-            position: relative;
+            position: absolute;
+            left: 400px;
+            top: 250px;
             z-index: 1;
         }
 
@@ -63,13 +65,19 @@
 </head>
 
 <body>
+    
 
     <div class="overskrift">
         <h1>Lag ditt eget visittkort</h1>
     </div>
 
     <br>
-
+    <label for="">
+        <h3>Ferdig laget kort</h3>
+        <select id="minListe"></select>
+    </label>
+    <br>
+    <br>
     <label for="inpNavn">Navn: </label>
     <input id="inpNavn" type="text" placeholder="Skriv her">
     <br>
@@ -82,16 +90,19 @@
     <input id="inpGender" type="text" placeholder="Skriv her">
     <br>
     <br>
-    <!--<label for="lblValgfritt">Valgfri:</label>
-    <input id="inpValgfritt" type="text" placeholder="Skriv her">10A elektrisk strøm: 10.12, 10.15
-10B elektrisk spenning og resistans: 10.19, 10.22, 10.23, 10.25, kap test 5
-10C kopling av motstander: 10.34, 10.36, 10.39, 10.61, 10.28, 10.29, 10.31, 10.32, 10.30
-10D elektrisk energi og effekt: 10.45, 10.49, 10.73, 10.53, kap test 3 og 4
-    <input id="Go" type="submit"></button>-->
+    <label for="lblValgfritt">Valgfri:</label>
+    <input id="inpValgfritt" type="text" placeholder="Skriv her">
+    <!--<input id="Go" type="submit"></button>-->
+    <br>
+    <br>
 
     <label for="førerkort">Har du førerkort?</label>
     <label for="forerkort">Ja?</label>
     <input id="inpForerkort" type="checkbox">
+    <br>
+    <br>
+    <label for="telefon">Skriv nummeret ditt:</label>
+    <input id="inpTelefon" type="text" placeholder="Skriv her">
     <br>
     <br>
     <label for="color">Bakgrunnsfarge: </label>
@@ -108,38 +119,53 @@
             <p id="pAlder"></p>
             <p id="pGender"></p>
             <p id="pForerkort"></p>
-            <!--<p id="pValgfritt"></p>-->
+            <p id="pValgfritt"></p>
+            <p id="pTelefon"></p>
             <p id="pKortFarge"></p>
             <img src="" id="bilde" alt="Velg et bilde" height="150px">
         </div>
     </div>
 
-    
+    <script src="VisittkortInfo.js"></script>
     <script>
-        var visittKort = document.getElementById("visittKort")
+        var visittKort = document.getElementById("visittKort");
         var inpAlder = document.getElementById("inpAlder");
         var inpNavn = document.getElementById("inpNavn");
         var inpGender = document.getElementById("inpGender");
         var inpValgfritt = document.getElementById("inpValgfritt");
         var inpKortFarge = document.getElementById("inpVisittKortFarge");
         var inpVisittBilde = document.getElementById("inpVisittBilde");
-        var inpFilNavn = document.getElementById("inpFilNavn")
+        var inpFilNavn = document.getElementById("inpFilNavn");
         var inpForerkort = document.getElementById("inpForerkort");
+        var inpTelefon = document.getElementById("inpTelefon");
         var pNavn = document.getElementById("pNavn");
         var pAlder = document.getElementById("pAlder");
         var pGender = document.getElementById("pGender");
         var pValgfritt = document.getElementById("pValgfritt");
         var pBildet = document.getElementById("pBildet");
+        var pTelefon = document.getElementById("pTelefon");
         /*var Go = document.getElementById("Go");*/
-        var bilde = document.getElementById("bilde")
-    
+        var bilde = document.getElementById("bilde");
+        var minListe = document.getElementById("minListe")
+        
+        for (element in visittKortJSON.kortArray) {
+        
+            minListe.innerHTML += "<option>" + visittKortJSON.kortArray[element].navn + "</option>"
+        }
+        
+        minListe.onchange = function () {
+            pNavn.innerHTML = visittKortJSON.kortArray[minListe.selectedIndex].navn
+            pAlder.innerHTML = visittKortJSON.kortArray[minListe.selectedIndex].alder
+            pGender.innerHTML = visittKortJSON.kortArray[minListe.selectedIndex].gender
 
+            //alert("du har valgt index nr" + minListe.selectedIndex)
+        }
 
         function leggInnNavn() {
             pNavn.innerHTML = inpNavn.value
-
         }
         inpNavn.addEventListener("input", leggInnNavn)
+     
 
         function leggInnAlder() {
             pAlder.innerHTML = inpAlder.value
@@ -159,17 +185,22 @@
             }
              else {
                 document.getElementById("pForerkort").innerHTML = "Førerkort: Nei"
-            }
+             }
+                
         }
         inpForerkort.addEventListener("input", Forerkort)
 
-        /*
+        
         function leggInnValgfritt() {
             pValgfritt.innerHTML = inpValgfritt.value
 
         }
         inpValgfritt.addEventListener("input", leggInnValgfritt)
-        */
+        
+        function leggInnTelefon() {
+            pTelefon.innerHTML = inpTelefon.value
+        }
+        inpTelefon.addEventListener("input", leggInnTelefon)
 
         function farge() {
             visittKort.style.backgroundColor = inpVisittKortFarge.value
