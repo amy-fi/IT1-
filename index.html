@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            min-height: 100vh;
+            width: 100%;
+            background-image: url(https://e0.pxfuel.com/wallpapers/501/711/desktop-wallpaper-lines-simple-background-abstract-dark-black-dribbble-oled-for-iphone-6-7-8-cool-oled.jpg);
+            background-position: center;
+            background-size: cover;
+            position: relative;
+
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #topptekst {
+            text-align: center;
+            text-shadow: black 1px 1px 1px;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 450px;
+            max-width: 600px;
+            height: 270px;
+            background-color: rgb(19, 187, 229);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgb(0, 0, 0.2);
+            margin: auto;
+            margin-top: 30%;
+            padding: 20px;
+            box-sizing: border-box;
+            display: grid;
+            z-index: 1;
+            border-style: solid;
+            border-color: rgb(255, 255, 255);
+            color: aliceblue;
+            background-color: rgb(78, 180, 249);
+        }
+
+        #box {
+            text-decoration: none;
+            color: aliceblue;
+            transition: 300ms;
+        }
+
+        #box:hover {
+            color: rgb(105, 13, 192);
+            transition: 300ms;
+        }
+
+        #meny {
+            margin-top: 700px;
+        }
+
+        #meny a {
+            background-color: transparent;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgb(255, 255, 255);
+            text-decoration: none;
+            color: white;
+            border: white solid 2px;
+            width: 140px;
+            height: 30px;
+            margin-top: 5%;
+            display: inline-block;
+            border-radius: 5px;
+            text-align: center;
+            padding: 40px;
+            transition: ease-in-out 0.5s;
+        }
+
+        section {
+            display: grid;
+            grid-gap: 3px;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            justify-content: space-between;
+        }
+
+        #section2{
+            display: grid;
+            grid-gap: 3px;
+            grid-template-columns: 1fr 1fr 1fr;
+            justify-content: space-between;
+        }
+
+        .innleverig {
+            background-color: yellow;
+            color: black;
+        }
+
+        #usynlig{
+            opacity: 0;
+        }
+
+        #topptekst2{
+            text-align: center;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            max-width: 600px;
+            height: 270px;
+            background-color: rgb(19, 187, 229);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgb(0, 0, 0.2);
+            margin: auto;
+            margin-top: 5px;
+            padding: 20px;
+            box-sizing: border-box;
+            display: grid;
+            z-index: 1;
+            border-style: solid;
+            border-color: rgb(255, 255, 255);
+            color: aliceblue;
+            background-color: blue;
+            opacity: 0;
+        }
+
+        #gif1:hover {
+            background-image: url(https://i.pinimg.com/originals/b1/d6/4c/b1d64c4cb307ef7ed95bb32b23d943d0.gif);
+            width: 140px;
+            height: 30px;
+            background-size: cover;
+        }
+
+        #gif2:hover {
+            background-image: url(../bilder/KyloRen.jpg);
+            width: 140px;
+            height: 30px;
+            background-size: cover; 
+        }
+
+        #gif3:hover{
+            background-image: url(../bilder/Mando_thisIsTheWay.jpg);
+            width: 140px;
+            height: 30px;
+            background-size: cover; 
+        }
+
+        #gif4:hover {
+            background-image: url(https://media.tenor.com/HfKNLg5RKuYAAAAM/star-wars-princess-leia.gif);
+            width: 140px;
+            height: 30px;
+            background-size: cover; 
+        }
+
+        #gif5:hover {
+            background-image: url(https://media4.giphy.com/media/8IZCR0wzEIQms/giphy.gif);
+            width: 140px;
+            height: 30px;
+            background-size: cover; 
+        }
+
+        #gif6:hover {
+            background-image: url(https://i.pinimg.com/originals/d0/45/6e/d0456e80877753487e03deaab16c3d26.gif);
+            width: 140px;
+            height: 30px;
+            background-size: cover; 
+        }
+        #gif7:hover {
+            background-image: url(https://media2.giphy.com/media/3o7abrIVCzBfv8O8aA/giphy.gif?cid=6c09b952d209c94992143aa9e98d0cb30bb9a7e3258332d7&ep=v1_internal_gifs_gifId&rid=giphy.gif&ct=g);
+            width: 140px;
+            height: 30px;
+            background-size: cover; 
+        }
+
+        #gif8:hover {
+            background-image: url(https://i.gifer.com/SiuH.gif);
+            width: 140px;
+            height: 30px;
+            background-size: cover; 
+        }
+
+        #gif9:hover {
+            background-image: url(https://www.icegif.com/wp-content/uploads/star-wars-icegif-1.gif);
+            width: 140px;
+            height: 30px;
+            background-size: cover; 
+        }
+
+        #gif10:hover {
+            background-image: url(https://i.gifer.com/DDzq.gif);
+            width: 140px;
+            height: 30px;
+            background-size: cover; 
+        }
+        #gif11:hover {
+            background-image: url(https://media2.giphy.com/media/e7FOBuKCDtwWI/giphy.gif?cid=6c09b952swohg6x7f8cv8ih8cqy6bn7hwrbgmdm4xjtzdb25&ep=v1_gifs_search&rid=giphy.gif&ct=g);
+            width: 140px;
+            height: 30px;
+            background-size: cover; 
+        }
+        #gif12:hover {
+            background-image: url(https://i.pinimg.com/originals/c4/f1/78/c4f17879094617f094107f3a83838d3e.gif);
+            width: 140px;
+            height: 30px;
+            background-size: cover; 
+        }
+        #gif13:hover {
+            background-image: url(https://i.gifer.com/8rm6.gif);
+            width: 140px;
+            height: 30px;
+            background-size: cover; 
+        }
+        #gif14:hover {
+            background-image: url(https://media.tenor.com/lwXJsds66JEAAAAC/star-wars-star-wars-episode3.gif);
+            width: 140px;
+            height: 30px;
+            background-size: cover; 
+        }
+        #gif15:hover {
+            background-image: url(https://i.kym-cdn.com/photos/images/original/001/358/841/52b.gif );
+            width: 140px;
+            height: 30px;
+            background-size: cover; 
+        }
+        #gif16:hover {
+            background-image: url(https://media.tenor.com/JCkh6frc9mEAAAAC/star-wars-princess.gif);
+            width: 140px;
+            height: 30px;
+            background-size: cover; 
+        }
+
+        h2 {
+            text-align: center;
+            color: white;
+        }
+
+
+    
+        
+    </style>
+</head>
+
+<body>
+    <div id="section2">
+    <div id="topptekst2">
+        <h1>Velkommen til min Git-hub side</h1>
+        <h2>2022-2023</h2>
+        <a id="box" href="#meny">Klikk her for oppgavene</a>
+    </div>
+    <div id="topptekst">
+        <h1>Velkommen til min Git-hub side</h1>
+        <h2>2022-2023</h2>
+        <a id="box" href="#meny">Klikk her for oppgavene</a>
+    </div>
+    <div id="topptekst2">
+        <h1>Velkommen til min Git-hub side</h1>
+        <h2>2022-2023</h2>
+        <a id="box" href="#meny">Klikk her for oppgavene</a>
+    </div>
+    </div>
+
+    
+    <div id="meny">
+        <h2>Mine Oppgaver</h2>
+        <section>
+            <a href="./Innlevering_H22/Hjemside.html" id="usynlig">usynlig</a>
+            <a href="./Innlevering_H22/Hjemside.html" id="gif1">Innlevering H22</a>
+            <a href="./HTML_koder/Intro_side.html" id="gif2"> Første oppgaven </a>
+            <a href="./HTML_koder/Timeplanen_min.html" id="gif3"> Min Timeplanen </a>
+            <a href="./Innlevering_H22/Hjemside.html" id="usynlig">usynlig</a>
+            <a href="./Innlevering_H22/Hjemside.html" id="usynlig">usynlig</a>
+            <a href="./HTML_koder/De_olymiske_ringene.html" id="gif4"> De olympiske ringene </a>
+            <a href="./HTML_koder/CSS_lekeplass.html" id="gif5"> CSS lekeplass</a>
+            <a href="./HTML_koder/griddemo.html" id="gif6">Det periodiske system</a>
+            <a href="./Innlevering_H22/Hjemside.html" id="usynlig">usynlig</a>
+            <a href="./Innlevering_H22/Hjemside.html" id="usynlig">usynlig</a>
+            <a href="./HTML_koder/js1.html" id="gif7">Loddtrekkning uke 44</a>
+            <a href="./HTML_koder/jsKalkulator.html" id="gif8">Kalkulator Uke 45</a>
+            <a href="./HTML_koder/jsSkuddår.html" id="gif9">Skuddår Uke 45</a>
+            <a href="./Innlevering_H22/Hjemside.html" id="usynlig">usynlig</a>
+            <a href="./Innlevering_H22/Hjemside.html" id="usynlig">usynlig</a>
+            <a href="./HTML_koder/6gangetabell.html" id="gif10">Gangetabell Uke 45</a>
+            <a href="./HTML_koder/arealAvTrapes.html" id="gif11">Areal av trapes Uke 46</a>
+            <a href="./HTML_koder/ungEllerGammel.html" id="gif12">Er du ung eller gammel Uke 46</a>
+            <a href="./Innlevering_H22/Hjemside.html" id="usynlig">usynlig</a>
+            <a href="./Innlevering_H22/Hjemside.html" id="usynlig">usynlig</a>
+            <a href="./HTML_koder/arealAvFirkant.html" id="gif13">Areal av firkant Uke 46</a>
+            <a href="./HTML_koder/yatzy.html" id="gif14">Yatzy innlevering V22</a>
+            <a href="./HTML_koder/Sporreprogram.html" id="gif15">Spørreprogram</a>
+            <a href="./Innlevering_H22/Hjemside.html" id="usynlig">usynlig</a>
+            <a href="./Innlevering_H22/Hjemside.html" id="usynlig">usynlig</a>
+            <a href="./HTML_koder/Visittkort.html" id="gif16">Visittkort</a>
+            <a href="./blippSpill.html" id="gif17">BlippSpill</a>
+
+        </section>
+    </div>
+</body>
+
+</html>
